@@ -187,8 +187,6 @@ function RSVPForm() {
 
   return (
     <form
-      action="https://formsubmit.co/arvineil13@yahoo.com.ph"
-      method="POST"
       style={{
         maxWidth: "500px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "clamp(1rem, 3vw, 1.5rem)",
         background: "white", padding: "clamp(1.5rem, 5vw, 2.5rem)", borderRadius: "24px",
@@ -196,31 +194,20 @@ function RSVPForm() {
         position: "relative",
         borderTop: `8px solid ${C.blue}`
       }}
-      onSubmit={async (e) => {
+      onSubmit={(e) => {
         e.preventDefault();
-        setLoading(true);
         const formData = new FormData(e.target);
-        try {
-          const res = await fetch("https://formsubmit.co/ajax/arvineil13@yahoo.com.ph", {
-            method: "POST",
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-            },
-            body: JSON.stringify(Object.fromEntries(formData))
-          });
-          if (!res.ok) throw new Error("Fetch failed");
-          setSent(true);
-        } catch (error) {
-          console.error("AJAX failed, falling back to native submission:", error);
-          e.target.submit(); // Native submission will handle the redirect for activation
-        } finally {
-          setLoading(false);
-        }
+        const name = formData.get("name") || "Guest";
+        const guests = formData.get("guests") || "1";
+        const message = formData.get("message") || "No message provided.";
+        
+        const subject = encodeURIComponent(`Birthday RSVP from ${name}`);
+        const body = encodeURIComponent(`Name: ${name}\nNumber of Guests: ${guests}\n\nMessage:\n${message}`);
+        
+        window.location.href = `mailto:arvineil13@yahoo.com.ph?subject=${subject}&body=${body}`;
+        setSent(true);
       }}
     >
-      <input type="hidden" name="_subject" value="New Birthday RSVP!" />
-      <input type="hidden" name="_captcha" value="false" />
       <img src="/images/cookie.png" alt="Cookie Monster" style={{
         position: "absolute", top: "clamp(-60px, -15vw, -120px)", right: "clamp(-40px, -15vw, -100px)", width: "clamp(200px, 50vw, 400px)",
         filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.15))",

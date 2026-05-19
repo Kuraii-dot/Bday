@@ -577,7 +577,7 @@ export default function BdayInvitation() {
                 marginBottom: "1rem",
                 textShadow: `3px 3px 0px ${C.yellow}, -1px -1px 0px white`
               }}>
-                Dane Adrielle is turning ONE!
+                Dane Adriele is turning ONE!
               </h1>
 
               <p style={{
@@ -587,7 +587,7 @@ export default function BdayInvitation() {
                 maxWidth: "500px", margin: "0 auto 2rem"
               }}>
                 Sunny days, sweeping the clouds away...<br />
-                Can you tell me how to get to Dane Adrielle's Birthday Party?
+                Can you tell me how to get to Dane Adriele's Birthday Party?
               </p>
 
               <img src="/images/1st.jpg" alt="Dane" style={{
@@ -734,7 +734,6 @@ export default function BdayInvitation() {
           background: C.bgLight,
           position: "relative"
         }}>
-          {/* Peeking Character removed from here */}
 
           <div style={{ maxWidth: "1000px", margin: "0 auto", position: "relative", zIndex: 1 }}>
             <SectionHeader subtitle="Memories" title="Growing Up" color={C.blue} />
@@ -794,6 +793,29 @@ export default function BdayInvitation() {
             <SectionHeader subtitle="Let Us Know" title="RSVP" color={C.green} />
 
             <RSVPForm />
+
+            {/* ── GIFT GUIDE ── */}
+            <div style={{
+              background: "white", padding: "clamp(2rem, 5vw, 3rem)", borderRadius: "30px",
+              marginTop: "4rem", textAlign: "center",
+              boxShadow: "0 15px 40px rgba(0,0,0,0.06)",
+              border: `4px solid ${C.yellow}`,
+              position: "relative"
+            }}>
+              <div style={{ position: "relative", zIndex: 1 }}>
+                <div style={{ background: C.yellow, color: "white", padding: "1rem", borderRadius: "50%", width: "70px", height: "70px", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 1.5rem" }}>
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1h-4v-1c0-.55.45-1 1-1 1.14 0 2.12.63 2.66 1.56.24-.26.56-.43.92-.48.13-.02.27-.08.42-.08zM9 4c.55 0 1 .45 1 1v1H6c0-.55.45-1 1-1s1-.45 1-1c.15 0 .29.06.42.08.36.05.68.22.92.48C9.88 4.63 10.86 4 12 4c-.38 0-.74.09-1.06.24C10.42 4.09 9.74 4 9 4zm3 15H4v-2h8v2zm0-4H4v-5h8v5zm2 4v-2h8v2h-8zm0-4v-5h8v5h-8z" />
+                  </svg>
+                </div>
+                <h3 style={{ fontFamily: "'Fredoka One', cursive", fontSize: "2rem", color: C.textDark, marginBottom: "1rem" }}>
+                  Gifts & Presents
+                </h3>
+                <p style={{ fontFamily: "'Nunito', sans-serif", fontSize: "1.2rem", color: C.textMuted, marginBottom: "0", fontWeight: 600 }}>
+                  Your presence is the greatest gift of all! However, if you wish to honor Dane with a gift, monetary gifts to help start his savings would be greatly appreciated.
+                </p>
+              </div>
+            </div>
 
             <div style={{ textAlign: "center", marginTop: "4rem" }}>
               <p style={{

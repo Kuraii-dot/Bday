@@ -664,8 +664,7 @@ export default function BdayInvitation() {
               "/images/3.JPG",
               "/images/4.JPG",
               "/images/5.JPG",
-              "/images/6.JPG",
-              "/images/7.png"
+              "/images/6.JPG"
             ].map((src, i) => (
               <div key={i} style={{
                 borderRadius: "20px", overflow: "hidden",

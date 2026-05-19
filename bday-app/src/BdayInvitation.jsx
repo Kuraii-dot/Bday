@@ -286,6 +286,7 @@ function RSVPForm() {
 export default function BdayInvitation() {
   const [scrollY, setScrollY] = useState(0);
   const [isOpened, setIsOpened] = useState(false);
+  const [isNavOpen, setIsNavOpen] = useState(false);
   const storyRef = useRef(null);
   const detailsRef = useRef(null);
   const galleryRef = useRef(null);
@@ -367,7 +368,7 @@ export default function BdayInvitation() {
         .nav-btn {
           font-family: 'Nunito', sans-serif;
           font-weight: 800;
-          font-size: clamp(0.75rem, 2vw, 0.9rem);
+          font-size: clamp(0.9rem, 2vw, 1rem);
           color: ${C.textDark};
           background: none;
           border: none;
@@ -375,10 +376,63 @@ export default function BdayInvitation() {
           cursor: pointer;
           border-radius: 20px;
           transition: all 0.2s ease;
+          width: 100%;
         }
         .nav-btn:hover {
           background: rgba(0,0,0,0.05);
           color: ${C.blue};
+        }
+        .nav-links {
+          display: flex;
+          gap: clamp(0.2rem, 1vw, 0.5rem);
+          justify-content: flex-end;
+          align-items: center;
+          flex: 1;
+        }
+        .hamburger {
+          display: none;
+          background: none;
+          border: none;
+          cursor: pointer;
+          color: ${C.textDark};
+        }
+        @media (max-width: 768px) {
+          .nav-links {
+            position: fixed;
+            top: 70px;
+            right: 1.5rem;
+            background: white;
+            flex-direction: column;
+            padding: 1rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(-20px) scale(0.95);
+            opacity: 0;
+            visibility: hidden;
+            border: 3px solid ${C.blue};
+            min-width: 150px;
+          }
+          .nav-links.open {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+            visibility: visible;
+          }
+          .hamburger {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border: 2px solid #eee;
+            transition: all 0.2s;
+          }
+          .hamburger:active {
+            transform: scale(0.95);
+          }
         }
       `}</style>
 
@@ -396,9 +450,10 @@ export default function BdayInvitation() {
           cursor: "pointer",
         }}
       >
-        <div style={{ textAlign: "center", padding: "2rem", position: "relative" }}>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%", padding: "1rem", position: "relative" }}>
           <img src="/images/group.png" alt="Sesame Street" style={{
-            width: "90%", maxWidth: "500px", margin: "0 auto",
+            display: "block",
+            width: "100%", maxWidth: "500px", margin: "0 auto",
             filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.2))",
             animation: "bounce 4s ease-in-out infinite alternate"
           }} />
@@ -436,7 +491,7 @@ export default function BdayInvitation() {
       {/* ── NAV ── */}
       <nav style={{
         position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
-        padding: "1rem 2rem",
+        padding: "1rem 1.5rem",
         background: scrollY > 20 ? "rgba(255,255,255,0.95)" : "transparent",
         backdropFilter: scrollY > 20 ? "blur(10px)" : "none",
         boxShadow: scrollY > 20 ? "0 4px 20px rgba(0,0,0,0.05)" : "none",
@@ -446,13 +501,31 @@ export default function BdayInvitation() {
         <div style={{
           fontFamily: "'Fredoka One', cursive", fontSize: "1.5rem", color: C.red,
           background: "white", padding: "0.2rem 1rem", borderRadius: "20px",
-          border: `3px solid ${C.red}`
+          border: `3px solid ${C.red}`, zIndex: 101
         }}>
           DANE
         </div>
-        <div style={{ display: "flex", gap: "clamp(0.2rem, 1vw, 0.5rem)", flexWrap: "wrap", justifyContent: "flex-end", flex: 1, marginLeft: "1rem" }}>
+
+        <button className="hamburger" onClick={() => setIsNavOpen(!isNavOpen)} style={{ zIndex: 101 }}>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={C.textDark} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            {isNavOpen ? (
+              <>
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </>
+            ) : (
+              <>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </>
+            )}
+          </svg>
+        </button>
+
+        <div className={`nav-links ${isNavOpen ? 'open' : ''}`}>
           {nav.map(n => (
-            <button key={n.id} className="nav-btn" onClick={() => go(n.id)}>{n.label}</button>
+            <button key={n.id} className="nav-btn" onClick={() => { setIsNavOpen(false); go(n.id); }}>{n.label}</button>
           ))}
         </div>
       </nav>

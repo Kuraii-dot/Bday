@@ -688,6 +688,7 @@ export default function BdayInvitation() {
                     </svg>
                   </div>
                   <h3 style={{ fontFamily: "'Fredoka One', cursive", fontSize: "1.6rem", color: C.orange, marginBottom: "0.5rem" }}>First Venue</h3>
+                  <p style={{ fontFamily: "'Nunito', sans-serif", fontSize: "1.1rem", color: C.textDark, fontWeight: 700 }}>Christening Ceremony</p>
                   <p style={{ fontFamily: "'Nunito', sans-serif", fontSize: "1.1rem", color: C.textDark, fontWeight: 700 }}>
                     Our Lady of the Pillar Parish Church
                   </p>

@@ -715,7 +715,7 @@ export default function BdayInvitation() {
                   </div>
                   <h3 style={{ fontFamily: "'Fredoka One', cursive", fontSize: "1.6rem", color: C.green, marginBottom: "0.5rem" }}>Main Venue</h3>
                   <p style={{ fontFamily: "'Nunito', sans-serif", fontSize: "1.1rem", color: C.textDark, fontWeight: 700 }}>
-                    Boulevard Town Square
+                    New Boulevard Town Square
                   </p>
                   <p style={{ fontFamily: "'Nunito', sans-serif", fontSize: "1.1rem", color: C.textMuted, fontWeight: 600 }}>
                     San Fermin, Cauayan City, Isabela<br />
@@ -736,8 +736,11 @@ export default function BdayInvitation() {
               <h3 style={{ fontFamily: "'Fredoka One', cursive", fontSize: "2rem", color: C.textDark, marginBottom: "1rem" }}>
                 Dress Code
               </h3>
-              <p style={{ fontFamily: "'Nunito', sans-serif", fontSize: "1.2rem", color: C.textMuted, marginBottom: "2rem", fontWeight: 600 }}>
+              <p style={{ fontFamily: "'Nunito', sans-serif", fontSize: "1.2rem", color: C.textMuted, marginBottom: "1rem", fontWeight: 600 }}>
                 Wear your favorite colors from Sesame Street!
+              </p>
+              <p style={{ fontFamily: "'Nunito', sans-serif", fontSize: "1.1rem", color: C.red, marginBottom: "2rem", fontWeight: 700, fontStyle: "italic" }}>
+                * Ninongs/Ninangs are advised to wear white during the baptismal ceremony.
               </p>
               <div style={{ display: "flex", justifyContent: "center", gap: "1.5rem", flexWrap: "wrap" }}>
                 {[

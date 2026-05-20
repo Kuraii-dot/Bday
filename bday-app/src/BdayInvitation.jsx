@@ -489,19 +489,6 @@ export default function BdayInvitation() {
               You're Invited!
             </h1>
           </div>
-          <div style={{
-            background: "white", padding: "clamp(1rem, 4vw, 1.5rem) clamp(1.5rem, 8vw, 3rem)", borderRadius: "50px",
-            border: `clamp(3px, 1.5vw, 6px) solid ${C.red}`,
-            boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
-            marginTop: "-30px", position: "relative", zIndex: 10,
-            transform: "rotate(-2deg)"
-          }}>
-            <h1 style={{
-              fontFamily: "'Fredoka One', cursive", fontSize: "clamp(2rem, 5vw, 3rem)",
-              color: C.red, margin: 0, textTransform: "uppercase", letterSpacing: "2px"
-            }}>
-              Ninong & Ninang
-            </h1></div>
           <div className="bounce" style={{
             marginTop: "3rem",
             display: "inline-block",
@@ -621,7 +608,7 @@ export default function BdayInvitation() {
                 marginBottom: "1rem",
                 textShadow: `3px 3px 0px ${C.yellow}, -1px -1px 0px white`
               }}>
-                Dane Adriele is turning ONE!
+                Dane Adriel is turning ONE!
               </h1>
 
               <p style={{
@@ -631,7 +618,7 @@ export default function BdayInvitation() {
                 maxWidth: "500px", margin: "0 auto 2rem"
               }}>
                 Sunny days, sweeping the clouds away...<br />
-                Can you tell me how to get to Dane Adriele's Birthday Party?
+                Can you tell me how to get to Dane Adriel's Birthday Party?
               </p>
 
               <img src="/images/1st.jpg" alt="Dane" style={{
